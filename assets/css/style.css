@@ -3,6 +3,10 @@ body {
 	color: white;
 }
 
+h1 {
+	font-size: 2em;
+}
+
 #layout {
 	width: 100vw;
 	height: 100vh;
@@ -38,5 +42,67 @@ body {
 }
 
 #enterImg {
+	width: 100%;
+}
+
+#playerSelection {
+	display: none;
+	width: 70vw;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#selectPlayer {
+	width: 100%;
+}
+
+#playerSelectionPlayers {
+	margin: 10px 9% 0 9%;
+}
+
+.playerNames {
+	width: 24%;
+	height: auto;
+	margin: 0.25%;
+}
+
+.playerImages {
+	box-sizing: border-box;
+	border: 3px solid #b5b6b5;
+	width: 24%;
+	height: auto;
+	margin: 0.5% 0.25%;
+}
+
+#onPlayer{
+	margin-top: 20px;
+	width: 27%;
+}
+
+#onPlayerName {
+	width: 100%;
+}
+
+#onPlayerImage {
+	margin-top: 10px;
+	width: 100%;
+}
+
+#stars {
+	margin-top: 20px;
+	width: 27%;
+}
+
+#star1 {
+	width: 20%;
+}
+
+#power {
+	margin-top: 20px;
+	width: 27%;
+}
+
+#powerTitle {
 	width: 100%;
 }
