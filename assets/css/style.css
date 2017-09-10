@@ -22,7 +22,7 @@ h1 {
 	margin: -8.5vw 0 0 -15vw;
 }
 
-#sega {
+.fullWidth {
 	width: 100%;
 }
 
@@ -41,68 +41,58 @@ h1 {
 	margin: -22.5vw 0 0 -45vw;
 }
 
-#enterImg {
-	width: 100%;
-}
-
 #playerSelection {
 	display: none;
-	width: 70vw;
-    margin: auto;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-#selectPlayer {
-	width: 100%;
 }
 
 #playerSelectionPlayers {
-	margin: 10px 9% 0 9%;
-}
-
-.playerNames {
-	width: 24%;
-	height: auto;
-	margin: 0.25%;
+	margin: 10px 8vw 0 8vw;
 }
 
 .playerImages {
+	opacity: 0.5;
+	margin-top: 20px;
 	box-sizing: border-box;
 	border: 3px solid #b5b6b5;
-	width: 24%;
+	width: 100%;
+}
+
+#playerSelected {
+	margin-top: 20px;
+}
+
+#onPlayer1Image {
+	margin-top: 20px;
+	width: 100%;
+}
+
+#onPlayer2Image {
+	margin-top: 20px;
+	width: 100%;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
+#star2 {
+	width: 100%;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
+#stage1 {
+	display: none;
+	position: absolute;
+	width: 70vw;
 	height: auto;
-	margin: 0.5% 0.25%;
-}
-
-#onPlayer{
-	margin-top: 20px;
-	width: 27%;
-}
-
-#onPlayerName {
-	width: 100%;
-}
-
-#onPlayerImage {
-	margin-top: 10px;
-	width: 100%;
-}
-
-#stars {
-	margin-top: 20px;
-	width: 27%;
-}
-
-#star1 {
-	width: 20%;
-}
-
-#power {
-	margin-top: 20px;
-	width: 27%;
-}
-
-#powerTitle {
-	width: 100%;
+	top: 50%;
+	left: 50%;
+	margin: -3.5vw 0 0 -35vw;
 }

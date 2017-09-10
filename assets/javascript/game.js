@@ -1,29 +1,206 @@
 $(document).ready(function() {
 
-var bolLoaded = false;
-
-setTimeout(function(){
-	$("#loading").css("display", "block");
-	$("#bgAudio").get(0).play();
-}, 1000);
-
-setTimeout(function(){
-	$("#loading").css("display", "none");
-	$("#enter").css("display", "block");
-	bolLoaded = true;
-	console.log(bolLoaded);
-}, 3500);
-
-document.onkeyup = function keylog(event) {
-	if (event.keyCode === 13) {
-		$("#enter").css("display", "none");
-		$("#playerSelection").css("display", "flex");
+	var objMax = {
+		position: 1,
+		badgeName: "assets/images/max-name.png",
+		profilePic: "assets/images/max.jpg",
+		p1Pic: "assets/images/max-p1.jpg",
+		p2Pic: "assets/images/max-p2.jpg",
+		goldenName: "assets/images/max-gold.png",
+		standAnimation: "assets/images/max-stand.gif",
+		kickAnimation: "assets/images/max-kick.gif"
 	}
 
+	var objAxel = {
+		position: 2,
+		badgeName: "assets/images/axel-name.png",
+		profilePic: "assets/images/axel.jpg",
+		p1Pic: "assets/images/axel-p1.jpg",
+		p2Pic: "assets/images/axel-p2.jpg",
+		goldenName: "assets/images/axel-gold.png",
+		standAnimation: "assets/images/axel-stand.gif",
+		kickAnimation: "assets/images/axel-kick.gif"
+	}
+
+	var objBlaze = {
+		position: 3,
+		badgeName: "assets/images/blaze-name.png",
+		profilePic: "assets/images/blaze.jpg",
+		p1Pic: "assets/images/blaze-p1.jpg",
+		p2Pic: "assets/images/blaze-p2.jpg",
+		goldenName: "assets/images/blaze-gold.png",
+		standAnimation: "assets/images/blaze-stand.gif",
+		kickAnimation: "assets/images/blaze-kick.gif"
+	}
+
+	var objSkate = {
+		position: 4,
+		badgeName: "assets/images/skate-name.png",
+		profilePic: "assets/images/skate.jpg",
+		p1Pic: "assets/images/skate-p1.jpg",
+		p2Pic: "assets/images/skate-p2.jpg",
+		goldenName: "assets/images/skate-gold.png",
+		standAnimation: "assets/images/skate-stand.gif",
+		kickAnimation: "assets/images/skate-kick.gif"
+	}
+
+	var intP1Selector = 1;
+	var intP1Selected = 0;
+	var arrAvailableP2 = [1, 2, 3, 4];
+	var intP2Selector = 0;
+	var intP2Selected = 0;
+	var bolLoaded = false;
+	var bolP1Selection = false;
+	var bolP2Selection = false;
+
+	setTimeout(function(){
+		$("#loading").css("display", "block");
+		$("#bgAudio").get(0).play();
+	}, 1000);
+
+	setTimeout(function(){
+		$("#loading").css("display", "none");
+		$("#enter").css("display", "block");
+		bolLoaded = true;
+	}, 3500);
+
+function player1Selector (position) {
+	if (bolP2Selection === false) {
+		$("#max").attr("src", "assets/images/max.jpg")
+		$("#axel").attr("src", "assets/images/axel.jpg")
+		$("#blaze").attr("src", "assets/images/blaze.jpg")
+		$("#skate").attr("src", "assets/images/skate.jpg")
+		$(".playerImages").css("opacity", "0.5")
+		switch (position) {
+			case 1:
+			$("#max").css("opacity", 1);
+			$("#max").attr("src", objMax.p1Pic);
+			$("#onPlayer1Name").attr("src", objMax.goldenName);
+			$("#onPlayer1Image").attr("src", objMax.standAnimation);
+			break;
+			case 2:
+			$("#axel").css("opacity", 1);
+			$("#axel").attr("src", objAxel.p1Pic);
+			$("#onPlayer1Name").attr("src", objAxel.goldenName);
+			$("#onPlayer1Image").attr("src", objAxel.standAnimation);
+			break;
+			case 3:
+			$("#blaze").css("opacity", 1);
+			$("#blaze").attr("src", objBlaze.p1Pic);
+			$("#onPlayer1Name").attr("src", objBlaze.goldenName);
+			$("#onPlayer1Image").attr("src", objBlaze.standAnimation);
+			break;
+			case 4:
+			$("#skate").css("opacity", 1);
+			$("#skate").attr("src", objSkate.p1Pic);
+			$("#onPlayer1Name").attr("src", objSkate.goldenName);
+			$("#onPlayer1Image").attr("src", objSkate.standAnimation);
+			break;												
+		}
+	}
+}
+
+
+function player2Selector (position) {
+	if (bolP1Selection === false && bolP2Selection === true) {
+		switch (intP1Selected) {
+			case 1:
+			$("#max").attr("src", "assets/images/max-p1.jpg")
+			$("#axel").attr("src", "assets/images/axel.jpg")
+			$("#blaze").attr("src", "assets/images/blaze.jpg")
+			$("#skate").attr("src", "assets/images/skate.jpg")
+			$(".playerImages").css("opacity", "0.5")
+			break;
+			case 2:
+			$("#max").attr("src", "assets/images/max.jpg")
+			$("#axel").attr("src", "assets/images/axel-p1.jpg")
+			$("#blaze").attr("src", "assets/images/blaze.jpg")
+			$("#skate").attr("src", "assets/images/skate.jpg")
+			$(".playerImages").css("opacity", "0.5")			
+			break;
+			case 3:
+			$("#max").attr("src", "assets/images/max.jpg")
+			$("#axel").attr("src", "assets/images/axel.jpg")
+			$("#blaze").attr("src", "assets/images/blaze-p1.jpg")
+			$("#skate").attr("src", "assets/images/skate.jpg")
+			$(".playerImages").css("opacity", "0.5")			
+			break;
+			case 4:
+			$("#max").attr("src", "assets/images/max.jpg")
+			$("#axel").attr("src", "assets/images/axel.jpg")
+			$("#blaze").attr("src", "assets/images/blaze.jpg")
+			$("#skate").attr("src", "assets/images/skate-p1.jpg")
+			$(".playerImages").css("opacity", "0.5")			
+			break;
+		}
+		switch (position) {
+			case 1:
+			$("#max").css("opacity", 1);
+			$("#max").attr("src", objMax.p2Pic);
+			$("#onPlayer2Name").attr("src", objMax.goldenName);
+			$("#onPlayer2Image").attr("src", objMax.standAnimation);
+			break;
+			case 2:
+			$("#axel").css("opacity", 1);
+			$("#axel").attr("src", objAxel.p2Pic);
+			$("#onPlayer2Name").attr("src", objAxel.goldenName);
+			$("#onPlayer2Image").attr("src", objAxel.standAnimation);
+			break;
+			case 3:
+			$("#blaze").css("opacity", 1);
+			$("#blaze").attr("src", objBlaze.p2Pic);
+			$("#onPlayer2Name").attr("src", objBlaze.goldenName);
+			$("#onPlayer2Image").attr("src", objBlaze.standAnimation);
+			break;
+			case 4:
+			$("#skate").css("opacity", 1);
+			$("#skate").attr("src", objSkate.p2Pic);
+			$("#onPlayer2Name").attr("src", objSkate.goldenName);
+			$("#onPlayer2Image").attr("src", objSkate.standAnimation);
+			break;												
+		}
+	}
 }
 
 
 
-
+	document.onkeydown = function keylog(event) {
+		if (bolLoaded === true && bolP1Selection === false && bolP2Selection === false && event.keyCode === 13) {
+			$("#enter").css("display", "none");
+			$("#playerSelection").css("display", "block");
+			$("#max").css("opacity", 1);
+			$("#max").attr("src", "assets/images/max-p1.jpg");
+			bolP1Selection = true;
+		}
+		else if (bolP1Selection === true && bolP2Selection === false && event.keyCode === 39 && intP1Selector <= 3) {
+			intP1Selector++;
+			player1Selector(intP1Selector);
+		}
+		else if (bolP1Selection === true && bolP2Selection === false && event.keyCode === 37 && intP1Selector >= 2) {
+			intP1Selector--;
+			player1Selector(intP1Selector);
+		}
+		else if (bolP1Selection === true && event.keyCode === 13) {
+			intP1Selected = intP1Selector;
+			arrAvailableP2.splice(intP1Selected - 1, 1);
+			bolP1Selection = false;
+			bolP2Selection = true;
+			player2Selector(arrAvailableP2[intP2Selector]);
+		}
+		else if (bolP2Selection === true && bolP1Selection === false && event.keyCode === 39 && intP2Selector <= 1) {
+			intP2Selector++;
+			player2Selector(arrAvailableP2[intP2Selector]);
+		}
+		else if (bolP2Selection === true && bolP1Selection === false && event.keyCode === 37 && intP2Selector >= 1) {
+			intP2Selector--;
+			player2Selector(arrAvailableP2[intP2Selector]);
+		}
+		else if (bolP1Selection === false && bolP2Selection === true && event.keyCode === 13) {
+			intP2Selected = arrAvailableP2[intP2Selector];
+			bolP2Selection = false;
+			$("#playerSelection").css("display", "none");
+			$("#stage1").css("display", "block");
+		}
+	}
 
 });

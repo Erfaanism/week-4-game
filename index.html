@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="shortcut icon" type="image/gif" href="assets/images/max-stand.gif">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
@@ -18,74 +19,162 @@
 
 		<div id="loading">
 
-			<img id="sega" src="assets/images/sega.png" alt="Sega">
+			<img class="fullWidth" id="sega" src="assets/images/sega.png" alt="Sega">
 
-			<img id="erfaanism" src="assets/images/erfaanism.png" alt="Erfaanism">
+			<img class="fullWidth" id="erfaanism" src="assets/images/erfaanism.png" alt="Erfaanism">
 
 		</div>
 
 		<div id="enter">
 		
-			<img id="enterImg" src="assets/images/enter.gif" alt="Press Enter">
+			<img class="fullWidth" src="assets/images/enter.gif" alt="Press Enter">
 		
 		</div>
 
-		<div id="playerSelection">
+		<div class="container-fluid" id="playerSelection">
 
-			<div id="playerSelectionTitle">
+			<div class="row justify-content-center">
+				
+				<div class="col-10">
+				
+					<img class="fullWidth" id="selectPlayer" src="assets/images/selectplayer.png" alt="Select your player">
 
-				<img id="selectPlayer" src="assets/images/selectplayer.png" alt="Select your player">
+				</div>
 
 			</div>
 
-			<div id="playerSelectionPlayers">
+			<div class="row justify-content-center">
+				
+				<div class="col-8">
 
-				<div id="playerNames">
-				
-					<img class="playerNames" src="assets/images/max-name.png" alt="Max">
-				
-					<img class="playerNames" src="assets/images/axel-name.png" alt="Axel">
-				
-					<img class="playerNames" src="assets/images/blaze-name.png" alt="Blaze">
-				
-					<img class="playerNames" src="assets/images/skate-name.png" alt="Skate">
-				
-				</div>
+					<div class="row justify-content-center">
 
-				<div id="playerImages">
+						<div class="col-3">
+						
+							<img class="fullWidth" src="assets/images/max-name.png" alt="Max">
+							
+							<img class="fullWidth playerImages" id="max" src="assets/images/max.jpg" alt="Max">
+							
+						</div>
+
+						<div class="col-3">
+						
+							<img class="fullWidth" src="assets/images/axel-name.png" alt="Axel">
+
+							<img class="fullWidth playerImages" id="axel" src="assets/images/axel.jpg" alt="Axel">
+
+						
+						</div>
+
+						<div class="col-3">
+
+							<img class="fullWidth" src="assets/images/blaze-name.png" alt="Blaze">
+
+							<img class="fullWidth playerImages" id="blaze" src="assets/images/blaze.jpg" alt="Blaze">
+						
+						</div>
+
+						<div class="col-3">
+
+							<img class="fullWidth" src="assets/images/skate-name.png" alt="Skate">
+						
+							<img class="fullWidth playerImages" id="skate" src="assets/images/skate.jpg" alt="Skate">
+
+
+						</div>
 					
-					<img class="playerImages" src="assets/images/max.jpg" alt="Max">
-				
-					<img class="playerImages" src="assets/images/axel.jpg" alt="Axel">
-				
-					<img class="playerImages" src="assets/images/blaze.jpg" alt="Blaze">
-				
-					<img class="playerImages" src="assets/images/skate.jpg" alt="Skate">
+					</div>
 
 				</div>
-			
+				
 			</div>
-			
-			<div id="onPlayer">
-			
-				<img id="onPlayerName" src="assets/images/max-gold.png" alt="Max">
-			
-				<img id="onPlayerImage" src="assets/images/max-stand.gif" alt="Max">
-			
-			</div>
+				
 
-			<div id="stars">
-			
-				<img id="star1" src="assets/images/star.png" alt="Star">
-			
-			</div>
-			
-			<div id="power">
-			
-				<img id="powerTitle" src="assets/images/power.png" alt="Power">
-			
+			<div class="row justify-content-center" id="playerSelected">
+				
+				<div class="col-9">
+
+					<div class="row justify-content-center">
+
+						<div class="col-3">
+						
+							<img class="fullWidth" id="onPlayer1Name" src="assets/images/max-gold.png" alt="Max">
+								
+							<img class="fullWidth" id="onPlayer1Image" src="assets/images/max-stand.gif" alt="Max">
+
+						</div>
+						
+
+						<div class="col-6">
+							
+							<div class="row justify-content-center mt-4">
+								
+								<div class="col-3">
+
+									<img class="fullWidth" id="powerStar-1" src="assets/images/star3.png" alt="Star">
+
+									<img class="fullWidth" id="techniqueStar-1" src="assets/images/star3.png" alt="Star">
+									
+									<img class="fullWidth" id="speedStar-1" src="assets/images/star3.png" alt="Star">
+									
+									<img class="fullWidth" id="jumpStar-1" src="assets/images/star3.png" alt="Star">
+									
+									<img class="fullWidth" id="staminaStar-1" src="assets/images/star3.png" alt="Star">
+								
+								</div>
+
+								<div class="col-6">
+
+									<img class="fullWidth" id="power" src="assets/images/power.png" alt="Power">
+
+									<img class="fullWidth" id="technique" src="assets/images/technique.png" alt="Technique">
+
+									<img class="fullWidth" id="speed" src="assets/images/speed.png" alt="Speed">
+
+									<img class="fullWidth" id="jump" src="assets/images/jump.png" alt="Jump">
+
+									<img class="fullWidth" id="stamina" src="assets/images/stamina.png" alt="Stamina">
+								
+								</div>
+
+								<div class="col-3">
+
+									<img class="fullWidth" id="powerStar-2" src="assets/images/star3.png" alt="Star">
+									
+									<img class="fullWidth" id="techniqueStar-2" src="assets/images/star3.png" alt="Star">
+									
+									<img class="fullWidth" id="speedStar-2" src="assets/images/star3.png" alt="Star">
+									
+									<img class="fullWidth" id="jumpStar-2" src="assets/images/star3.png" alt="Star">
+									
+									<img class="fullWidth" id="staminaStar-2" src="assets/images/star3.png" alt="Star">
+
+								</div>						
+
+							</div>
+
+						</div>
+
+						<div class="col-3">
+					
+							<img class="fullWidth" id="onPlayer2Name" src="assets/images/max-gold.png" alt="Max">
+								
+							<img class="fullWidth" id="onPlayer2Image" src="assets/images/max-stand.gif" alt="Max">
+
+						</div>
+
+					</div>
+
+				</div>
+
 			</div>
 		
+		</div>
+
+		<div id="stage1">
+			
+			<img class="fullWidth" src="assets/images/stage1.png" alt="Stage 1">
+
 		</div>
 	
 	</div>
