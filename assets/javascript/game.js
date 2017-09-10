@@ -55,7 +55,7 @@ $(document).ready(function() {
 
 	setTimeout(function(){
 		$("#loading").css("display", "block");
-		$("#bgAudio").get(0).play();
+		$("#introMusic").get(0).play();
 	}, 1000);
 
 	setTimeout(function(){
@@ -65,6 +65,7 @@ $(document).ready(function() {
 	}, 3500);
 
 function player1Selector (position) {
+	$("#switchNoise").get(0).play();
 	if (bolP2Selection === false) {
 		$("#max").attr("src", "assets/images/max.jpg")
 		$("#axel").attr("src", "assets/images/axel.jpg")
@@ -103,6 +104,7 @@ function player1Selector (position) {
 
 function player2Selector (position) {
 	if (bolP1Selection === false && bolP2Selection === true) {
+		$("#switchNoise").get(0).play();
 		switch (intP1Selected) {
 			case 1:
 			$("#max").attr("src", "assets/images/max-p1.jpg")
@@ -170,6 +172,8 @@ function player2Selector (position) {
 			$("#playerSelection").css("display", "block");
 			$("#max").css("opacity", 1);
 			$("#max").attr("src", "assets/images/max-p1.jpg");
+			$("#selectNoise").get(0).play();
+			$("#bgMusic").get(0).play();
 			bolP1Selection = true;
 		}
 		else if (bolP1Selection === true && bolP2Selection === false && event.keyCode === 39 && intP1Selector <= 3) {
@@ -181,6 +185,7 @@ function player2Selector (position) {
 			player1Selector(intP1Selector);
 		}
 		else if (bolP1Selection === true && event.keyCode === 13) {
+			$("#selectPlayer").get(0).play();
 			intP1Selected = intP1Selector;
 			arrAvailableP2.splice(intP1Selected - 1, 1);
 			bolP1Selection = false;
@@ -200,6 +205,7 @@ function player2Selector (position) {
 			bolP2Selection = false;
 			$("#playerSelection").css("display", "none");
 			$("#stage1").css("display", "block");
+			$("#selectPlayer").get(0).play();
 		}
 	}
 
