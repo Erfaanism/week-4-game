@@ -15,29 +15,30 @@
 
 	<audio id="introMusic" src="assets/audio/sega.mp3"></audio>
 	<audio id="selectNoise" src="assets/audio/select.mp3"></audio>
-	<audio id="bgMusic" src="assets/audio/background.mp3"></audio>
+	<audio id="pSelectMusic" src="assets/audio/pselect.mp3"></audio>
+	<audio id="bgMusic" loop="true" src="assets/audio/background.mp3"></audio>
 	<audio id="switchNoise" src="assets/audio/switch.mp3"></audio>
 	<audio id="selectPlayer" src="assets/audio/select2.mp3"></audio>
 
-	<div id="layout">
+	<div id="layout">	<!-- Start - Main container of the game -->
 
-		<div id="loading">
+		<div id="loading">	<!-- Start - Loading page -->
 
 			<img class="fullWidth" id="sega" src="assets/images/sega.png" alt="Sega">
 
 			<img class="fullWidth" id="erfaanism" src="assets/images/erfaanism.png" alt="Erfaanism">
 
-		</div>
+		</div>	<!-- End - Loading page -->
 
-		<div id="enter">
+		<div id="enter">	<!-- Start - Press play to continue -->
 		
 			<img class="fullWidth" src="assets/images/enter.gif" alt="Press Enter">
 		
-		</div>
+		</div>	<!-- End - Press play to continue -->
 
-		<div class="container-fluid" id="playerSelection">
+		<div class="container-fluid" id="playerSelection">	<!-- Start - The main container for player selection page -->
 
-			<div class="row justify-content-center">
+			<div class="row justify-content-center">	<!-- Start - Select player header -->
 				
 				<div class="col-10">
 				
@@ -45,9 +46,9 @@
 
 				</div>
 
-			</div>
+			</div>	<!-- End - Select player header -->
 
-			<div class="row justify-content-center">
+			<div class="row justify-content-center">	<!-- Start - Images and names of characters to choose from -->
 				
 				<div class="col-8">
 
@@ -91,10 +92,10 @@
 
 				</div>
 				
-			</div>
+			</div>	<!-- End - Images and names of characters to choose from -->
 				
 
-			<div class="row justify-content-center" id="playerSelected">
+			<div class="row justify-content-center" id="playerSelected">	<!-- Start - Selected player's and animation and information -->
 				
 				<div class="col-9">
 
@@ -171,13 +172,62 @@
 
 				</div>
 
-			</div>
+			</div>	<!-- End - Selected player's and animation and information -->
 		
-		</div>
+		</div>	<!-- End - The main container for player selection page -->
 
 		<div id="stage1">
 			
 			<img class="fullWidth" src="assets/images/stage1.png" alt="Stage 1">
+
+		</div>
+
+		<div id="battleScene">
+
+			<div id="instruction">
+				
+				<span id="instructionText">Press Enter to Attack</span>
+
+			</div>
+			
+			<div id="p1Stats">
+
+				<img id="statName1" src="assets/images/max-name.png" alt="Max">
+
+				<img id="statImage1" id="max" src="assets/images/max.jpg" alt="Max">
+
+				<div id="hpBar1">
+					
+				</div>
+
+			</div>
+
+			<div id="timer">
+				
+				<span id="timerTitle">TIME</span>
+
+				<span id="timerCounter">99</span>
+
+			</div>
+
+			<div id="p2Stats">
+				
+				<img id="statName2" src="assets/images/max-name.png" alt="Max">
+
+				<img id="statImage2" id="max" src="assets/images/max.jpg" alt="Max">
+
+				<div id="hpBar2">
+					
+				</div>
+
+			</div>
+
+			<img id="p1Fighter" src="assets/images/max-stand.gif" alt="Fighter 1">
+
+			<img id="p2Fighter" src="assets/images/max-stand.gif" alt="Fighter 2">
+
+			<img id="fgImage" src="assets/images/foreground.png" alt="Foreground">
+
 
 		</div>
 	

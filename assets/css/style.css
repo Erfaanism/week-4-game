@@ -1,10 +1,15 @@
+@font-face {
+	font-family: '8BITWONDERNominal';
+	src: url('../fonts/8BITWONDERNominal.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
 	background-color: black;
 	color: white;
-}
-
-h1 {
-	font-size: 2em;
+	font-family: "8BITWONDERNominal", sans-serif;
+	font-size: 18px;
 }
 
 #layout {
@@ -62,13 +67,15 @@ h1 {
 }
 
 #onPlayer1Image {
-	margin-top: 20px;
-	width: 100%;
+	margin-top: -25%;
+	margin-left: -25%;
+	width: 150%;
 }
 
 #onPlayer2Image {
-	margin-top: 20px;
-	width: 100%;
+	margin-top: -25%;
+	margin-left: -25%;
+	width: 150%;
 	-moz-transform: scaleX(-1);
 	-o-transform: scaleX(-1);
 	-webkit-transform: scaleX(-1);
@@ -95,4 +102,145 @@ h1 {
 	top: 50%;
 	left: 50%;
 	margin: -3.5vw 0 0 -35vw;
+}
+
+#battleScene {
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	background: url(../images/background.gif) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#p1Fighter {
+	position: absolute;
+	width: 20vw;
+	margin-top: 40vh;
+	margin-left: 10vw;
+}
+
+#p2Fighter {
+	position: absolute;
+	width: 20vw;
+	margin-top: 40vh;
+	margin-left: 70vw;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
+#instructionText {
+	display: block;
+	text-align: center;
+	color: white;
+	-webkit-text-stroke: 0.25vw black;
+	font-size: 2.5vw;
+}
+
+#statName1, #statName2 {
+	position: absolute;
+	top: 5vw;
+	height: 2vw;
+}
+
+#statImage1, #statImage2 {
+	box-sizing: border-box;
+	border: solid 2px #ffff00;
+	position: absolute;
+	top: 5vw;
+	width: 5vw;
+}
+
+#statName1 {
+	left: 5vw;
+}
+
+#statImage1 {
+	left: 2.5vw;
+}
+
+#hpBar1 {
+	position: absolute;
+	box-sizing: border-box;
+	background: -webkit-linear-gradient(90deg, #ffff00 50%, #ff2400 50%);
+	background: -o-linear-gradient(90deg, #ffff00 50%, #ff2400 50%);
+	background: -moz-linear-gradient(90deg, #ffff00 50%, #ff2400 50%);
+	background: linear-gradient(90deg, #ffff00 50%, #ff2400 50%);
+	border: solid 2px #fff;
+	width: 33vw;
+	height: 2.5vw;
+	top: 7.5vw;
+	left: 7.5vw;
+}
+
+#timer {
+	position: absolute;
+	box-sizing: border-box;
+	border: solid 1vw #ffff00;
+	border-top: solid 2.5vw #ffff00;
+	border-radius: 0.5vw;
+	width: 9vw;
+	height: 9vw;
+	top: 4.5vw;
+	left: 45.5vw;	
+}
+
+#timerTitle {
+	position: absolute;
+	font-size: 2vw;
+	top: -3vw;
+	left: -0.25vw;
+	color: black;
+	-webkit-text-stroke: 0.1vw white;
+}
+
+#timerCounter {
+	position: absolute;
+	font-size: 3.25vw;
+	-webkit-text-stroke: 0.25vw white;
+	left: 53%;
+	transform: translate(-50%, 0);
+	color: #ff2400;	
+}
+
+#statName2 {
+	right: 5vw;
+}
+
+#statImage2 {
+	right: 2.5vw;
+}
+
+#hpBar2 {
+	position: absolute;
+	box-sizing: border-box;
+	background: -webkit-linear-gradient(90deg, #ff2400 50%, #ffff00 50%);
+	background: -o-linear-gradient(90deg, #ff2400 50%, #ffff00 50%);
+	background: -moz-linear-gradient(90deg, #ff2400 50%, #ffff00 50%);
+	background: linear-gradient(90deg, #ff2400 50%, #ffff00 50%);
+	border: solid 2px #fff;
+	width: 33vw;
+	height: 2.5vw;
+	top: 7.5vw;
+	right: 7.5vw;
+}
+
+#fgImage {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+.fgWidth {
+	width: 100%;
+}
+
+.fgHeight {
+	height: 100%;
 }

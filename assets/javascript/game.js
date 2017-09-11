@@ -8,7 +8,57 @@ $(document).ready(function() {
 		p2Pic: "assets/images/max-p2.jpg",
 		goldenName: "assets/images/max-gold.png",
 		standAnimation: "assets/images/max-stand.gif",
-		kickAnimation: "assets/images/max-kick.gif"
+		beatenAnimation: "assets/images/max-beaten.gif",
+		walkAnimation: "assets/images/max-walk.gif",
+		kickAnimation: "assets/images/max-kick.gif",
+		attack: function () {
+					var self = this;
+					$("#p1Fighter").attr("src", self.walkAnimation);
+					$("#p1Fighter").animate({left: "50vw"},{duration: 800});
+					setTimeout(function () {
+						$("#p1Fighter").attr("src", self.kickAnimation);
+						setTimeout(function () {
+							$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
+						}, 150);
+						setTimeout(function () {
+							$("#p1Fighter").attr("src", self.walkAnimation);
+							$("#p2Fighter").attr("src", objP2Selected.standAnimation);
+						}, 800);
+						setTimeout(function () {
+							$("#p1Fighter").animate({left: "0"},{duration: 800});
+						}, 800);
+						setTimeout(function () {
+							$("#p1Fighter").attr("src", self.standAnimation);
+						}, 1600);
+					}, 800);
+				},
+		counterAttack: function () {
+						var self = this;
+						setTimeout(function () {
+							$("#p2Fighter").attr("src", self.walkAnimation);
+							$("#p2Fighter").animate({right: "60vw"},{duration: 800});
+							setTimeout(function () {
+								$("#p2Fighter").attr("src", self.kickAnimation);
+								setTimeout(function () {
+									$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
+								}, 100);
+								setTimeout(function () {
+									$("#p2Fighter").attr("src", self.walkAnimation);
+									$("#p1Fighter").attr("src", objP1Selected.standAnimation);
+								}, 800);
+								setTimeout(function () {
+									$("#p2Fighter").animate({right: "10vw"},{duration: 800});
+								}, 800);
+								setTimeout(function () {
+									$("#p2Fighter").attr("src", self.standAnimation);
+									bolUnderAttack = false;
+								}, 1600);
+							}, 800);
+						}, 3000);
+					},
+		hp: 165,
+		ap: 12,
+		cap: 30
 	}
 
 	var objAxel = {
@@ -19,7 +69,57 @@ $(document).ready(function() {
 		p2Pic: "assets/images/axel-p2.jpg",
 		goldenName: "assets/images/axel-gold.png",
 		standAnimation: "assets/images/axel-stand.gif",
-		kickAnimation: "assets/images/axel-kick.gif"
+		beatenAnimation: "assets/images/axel-beaten.gif",
+		walkAnimation: "assets/images/axel-walk.gif",
+		kickAnimation: "assets/images/axel-kick.gif",
+		attack: function () {
+					var self = this;
+					$("#p1Fighter").attr("src", self.walkAnimation);
+					$("#p1Fighter").animate({left: "50vw"},{duration: 800});
+					setTimeout(function () {
+						$("#p1Fighter").attr("src", self.kickAnimation);
+						setTimeout(function () {
+							$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
+						}, 150);
+						setTimeout(function () {
+							$("#p1Fighter").attr("src", self.walkAnimation);
+							$("#p2Fighter").attr("src", objP2Selected.standAnimation);
+						}, 800);
+						setTimeout(function () {
+							$("#p1Fighter").animate({left: "0"},{duration: 800});
+						}, 800);
+						setTimeout(function () {
+							$("#p1Fighter").attr("src", self.standAnimation);
+						}, 1600);
+					}, 800);
+				},
+		counterAttack: function () {
+						var self = this;
+						setTimeout(function () {
+							$("#p2Fighter").attr("src", self.walkAnimation);
+							$("#p2Fighter").animate({right: "60vw"},{duration: 800});
+							setTimeout(function () {
+								$("#p2Fighter").attr("src", self.kickAnimation);
+								setTimeout(function () {
+									$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
+								}, 100);
+								setTimeout(function () {
+									$("#p2Fighter").attr("src", self.walkAnimation);
+									$("#p1Fighter").attr("src", objP1Selected.standAnimation);
+								}, 800);
+								setTimeout(function () {
+									$("#p2Fighter").animate({right: "10vw"},{duration: 800});
+								}, 800);
+								setTimeout(function () {
+									$("#p2Fighter").attr("src", self.standAnimation);
+									bolUnderAttack = false;
+								}, 1600);
+							}, 800);
+						}, 3000);
+					},
+		hp: 150,
+		ap: 10,
+		cap: 35
 	}
 
 	var objBlaze = {
@@ -30,7 +130,57 @@ $(document).ready(function() {
 		p2Pic: "assets/images/blaze-p2.jpg",
 		goldenName: "assets/images/blaze-gold.png",
 		standAnimation: "assets/images/blaze-stand.gif",
-		kickAnimation: "assets/images/blaze-kick.gif"
+		beatenAnimation: "assets/images/blaze-beaten.gif",
+		walkAnimation: "assets/images/blaze-walk.gif",
+		kickAnimation: "assets/images/blaze-kick.gif",
+		attack: function () {
+					var self = this;
+					$("#p1Fighter").attr("src", self.walkAnimation);
+					$("#p1Fighter").animate({left: "50vw"},{duration: 800});
+					setTimeout(function () {
+						$("#p1Fighter").attr("src", self.kickAnimation);
+						setTimeout(function () {
+							$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
+						}, 150);
+						setTimeout(function () {
+							$("#p1Fighter").attr("src", self.walkAnimation);
+							$("#p2Fighter").attr("src", objP2Selected.standAnimation);
+						}, 800);
+						setTimeout(function () {
+							$("#p1Fighter").animate({left: "0"},{duration: 800});
+						}, 800);
+						setTimeout(function () {
+							$("#p1Fighter").attr("src", self.standAnimation);
+						}, 1600);
+					}, 800);
+				},
+		counterAttack: function () {
+						var self = this;
+						setTimeout(function () {
+							$("#p2Fighter").attr("src", self.walkAnimation);
+							$("#p2Fighter").animate({right: "60vw"},{duration: 800});
+							setTimeout(function () {
+								$("#p2Fighter").attr("src", self.kickAnimation);
+								setTimeout(function () {
+									$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
+								}, 100);
+								setTimeout(function () {
+									$("#p2Fighter").attr("src", self.walkAnimation);
+									$("#p1Fighter").attr("src", objP1Selected.standAnimation);
+								}, 800);
+								setTimeout(function () {
+									$("#p2Fighter").animate({right: "10vw"},{duration: 800});
+								}, 800);
+								setTimeout(function () {
+									$("#p2Fighter").attr("src", self.standAnimation);
+									bolUnderAttack = false;
+								}, 1600);
+							}, 800);
+						}, 3000);
+					},
+		hp: 140,
+		ap: 8,
+		cap: 40
 	}
 
 	var objSkate = {
@@ -41,17 +191,74 @@ $(document).ready(function() {
 		p2Pic: "assets/images/skate-p2.jpg",
 		goldenName: "assets/images/skate-gold.png",
 		standAnimation: "assets/images/skate-stand.gif",
-		kickAnimation: "assets/images/skate-kick.gif"
+		beatenAnimation: "assets/images/skate-beaten.gif",
+		walkAnimation: "assets/images/skate-walk.gif",
+		kickAnimation: "assets/images/skate-kick.gif",
+		attack: function () {
+					var self = this;
+					$("#p1Fighter").attr("src", self.walkAnimation);
+					$("#p1Fighter").animate({left: "50vw"},{duration: 800});
+					setTimeout(function () {
+						$("#p1Fighter").attr("src", self.kickAnimation);
+						setTimeout(function () {
+							$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
+						}, 150);
+						setTimeout(function () {
+							$("#p1Fighter").attr("src", self.walkAnimation);
+							$("#p2Fighter").attr("src", objP2Selected.standAnimation);
+						}, 800);
+						setTimeout(function () {
+							$("#p1Fighter").animate({left: "0"},{duration: 800});
+						}, 800);
+						setTimeout(function () {
+							$("#p1Fighter").attr("src", self.standAnimation);
+						}, 1600);
+					}, 800);
+				},
+		counterAttack: function () {
+						var self = this;
+						setTimeout(function () {
+							$("#p2Fighter").attr("src", self.walkAnimation);
+							$("#p2Fighter").animate({right: "60vw"},{duration: 800});
+							setTimeout(function () {
+								$("#p2Fighter").attr("src", self.kickAnimation);
+								setTimeout(function () {
+									$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
+								}, 100);
+								setTimeout(function () {
+									$("#p2Fighter").attr("src", self.walkAnimation);
+									$("#p1Fighter").attr("src", objP1Selected.standAnimation);
+								}, 800);
+								setTimeout(function () {
+									$("#p2Fighter").animate({right: "10vw"},{duration: 800});
+								}, 800);
+								setTimeout(function () {
+									$("#p2Fighter").attr("src", self.standAnimation);
+									bolUnderAttack = false;
+								}, 1600);
+							}, 800);
+						}, 3000);
+					},
+		hp: 120,
+		ap: 7,
+		cap: 45
 	}
 
+	var arrObjList = [objMax, objAxel, objBlaze, objSkate];
+	var objP1Selected = null;
+	var objP2Selected = null;
 	var intP1Selector = 1;
 	var intP1Selected = 0;
 	var arrAvailableP2 = [1, 2, 3, 4];
 	var intP2Selector = 0;
 	var intP2Selected = 0;
+	var intTimerCounter = 99;
 	var bolLoaded = false;
 	var bolP1Selection = false;
 	var bolP2Selection = false;
+	var bolBattleBegan = false;
+	var bolUnderAttack = false;
+	var bolStageLoaded = false;
 
 	setTimeout(function(){
 		$("#loading").css("display", "block");
@@ -100,7 +307,6 @@ function player1Selector (position) {
 		}
 	}
 }
-
 
 function player2Selector (position) {
 	if (bolP1Selection === false && bolP2Selection === true) {
@@ -164,48 +370,88 @@ function player2Selector (position) {
 	}
 }
 
+	function beginFight() {
+		setTimeout(function fight() {
+		$("#stage1").css("display", "none");
+		$("#battleScene").css("display", "block");
+		var aspectRatio = $("#fgImage").width() / $("#fgImage").height();
+		function fgResize() {
+			if ( ($("window").width() / $("window").height()) < aspectRatio ) {
+				$("#fgImage").removeClass().addClass("fgHeight");
+			}
+			else {
+				$("#fgImage").removeClass().addClass("fgWidth");
+			}
+		}
+		$("window").resize(fgResize()).trigger("resize");
+		$("#p1Fighter").attr("src", objP1Selected.standAnimation);
+		$("#p2Fighter").attr("src", objP2Selected.standAnimation);
+		bolStageLoaded = true;
+		var timer = setInterval(function(){
+			intTimerCounter--;
+			$("#timerCounter").html(intTimerCounter);
+			if (intTimerCounter === 0) {
+				clearInterval(timer);
+				$("#bgMusic").get(0).pause();
+			}
+		}, 1000);
+	}, 2000)};
 
+	function attack () {
+		objP1Selected.attack();
+		objP2Selected.counterAttack();
+		bolUnderAttack = true;
+	}
 
 	document.onkeydown = function keylog(event) {
-		if (bolLoaded === true && bolP1Selection === false && bolP2Selection === false && event.keyCode === 13) {
+		if (bolLoaded === true && bolP1Selection === false && bolP2Selection === false && bolBattleBegan === false && event.keyCode === 13) {
 			$("#enter").css("display", "none");
 			$("#playerSelection").css("display", "block");
 			$("#max").css("opacity", 1);
 			$("#max").attr("src", "assets/images/max-p1.jpg");
 			$("#selectNoise").get(0).play();
-			$("#bgMusic").get(0).play();
+			$("#pSelectMusic").get(0).play();
 			bolP1Selection = true;
 		}
-		else if (bolP1Selection === true && bolP2Selection === false && event.keyCode === 39 && intP1Selector <= 3) {
+		else if (bolP1Selection === true && bolP2Selection === false && bolBattleBegan === false && event.keyCode === 39 && intP1Selector <= 3) {
 			intP1Selector++;
 			player1Selector(intP1Selector);
 		}
-		else if (bolP1Selection === true && bolP2Selection === false && event.keyCode === 37 && intP1Selector >= 2) {
+		else if (bolP1Selection === true && bolP2Selection === false && bolBattleBegan === false && event.keyCode === 37 && intP1Selector >= 2) {
 			intP1Selector--;
 			player1Selector(intP1Selector);
 		}
 		else if (bolP1Selection === true && event.keyCode === 13) {
 			$("#selectPlayer").get(0).play();
 			intP1Selected = intP1Selector;
+			objP1Selected = arrObjList[intP1Selected - 1];
 			arrAvailableP2.splice(intP1Selected - 1, 1);
 			bolP1Selection = false;
 			bolP2Selection = true;
 			player2Selector(arrAvailableP2[intP2Selector]);
 		}
-		else if (bolP2Selection === true && bolP1Selection === false && event.keyCode === 39 && intP2Selector <= 1) {
+		else if (bolP2Selection === true && bolP1Selection === false && bolBattleBegan === false && event.keyCode === 39 && intP2Selector <= 1) {
 			intP2Selector++;
 			player2Selector(arrAvailableP2[intP2Selector]);
 		}
-		else if (bolP2Selection === true && bolP1Selection === false && event.keyCode === 37 && intP2Selector >= 1) {
+		else if (bolP2Selection === true && bolP1Selection === false && bolBattleBegan === false && event.keyCode === 37 && intP2Selector >= 1) {
 			intP2Selector--;
 			player2Selector(arrAvailableP2[intP2Selector]);
 		}
-		else if (bolP1Selection === false && bolP2Selection === true && event.keyCode === 13) {
+		else if (bolP1Selection === false && bolP2Selection === true && bolBattleBegan === false && event.keyCode === 13) {
 			intP2Selected = arrAvailableP2[intP2Selector];
+			objP2Selected = arrObjList[intP2Selected - 1];
 			bolP2Selection = false;
 			$("#playerSelection").css("display", "none");
 			$("#stage1").css("display", "block");
 			$("#selectPlayer").get(0).play();
+			$("#pSelectMusic").get(0).pause();
+			$("#bgMusic").get(0).play();
+			beginFight();
+			bolBattleBegan = true;
+		}
+		else if (bolUnderAttack === false && bolStageLoaded === true && bolP1Selection === false && bolP2Selection === false && bolBattleBegan === true && event.keyCode === 13) {
+			attack();
 		}
 	}
 
