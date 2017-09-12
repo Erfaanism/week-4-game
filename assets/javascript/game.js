@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	var objMax = {
 		position: 1,
-		badgeName: "assets/images/max-name.png",
+		badgeName: "assets/images/max-badge.png",
 		profilePic: "assets/images/max.jpg",
 		p1Pic: "assets/images/max-p1.jpg",
 		p2Pic: "assets/images/max-p2.jpg",
@@ -11,51 +11,6 @@ $(document).ready(function() {
 		beatenAnimation: "assets/images/max-beaten.gif",
 		walkAnimation: "assets/images/max-walk.gif",
 		kickAnimation: "assets/images/max-kick.gif",
-		attack: function () {
-					var self = this;
-					$("#p1Fighter").attr("src", self.walkAnimation);
-					$("#p1Fighter").animate({left: "50vw"},{duration: 800});
-					setTimeout(function () {
-						$("#p1Fighter").attr("src", self.kickAnimation);
-						setTimeout(function () {
-							$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
-						}, 150);
-						setTimeout(function () {
-							$("#p1Fighter").attr("src", self.walkAnimation);
-							$("#p2Fighter").attr("src", objP2Selected.standAnimation);
-						}, 800);
-						setTimeout(function () {
-							$("#p1Fighter").animate({left: "0"},{duration: 800});
-						}, 800);
-						setTimeout(function () {
-							$("#p1Fighter").attr("src", self.standAnimation);
-						}, 1600);
-					}, 800);
-				},
-		counterAttack: function () {
-						var self = this;
-						setTimeout(function () {
-							$("#p2Fighter").attr("src", self.walkAnimation);
-							$("#p2Fighter").animate({right: "60vw"},{duration: 800});
-							setTimeout(function () {
-								$("#p2Fighter").attr("src", self.kickAnimation);
-								setTimeout(function () {
-									$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
-								}, 100);
-								setTimeout(function () {
-									$("#p2Fighter").attr("src", self.walkAnimation);
-									$("#p1Fighter").attr("src", objP1Selected.standAnimation);
-								}, 800);
-								setTimeout(function () {
-									$("#p2Fighter").animate({right: "10vw"},{duration: 800});
-								}, 800);
-								setTimeout(function () {
-									$("#p2Fighter").attr("src", self.standAnimation);
-									bolUnderAttack = false;
-								}, 1600);
-							}, 800);
-						}, 3000);
-					},
 		hp: 165,
 		ap: 12,
 		cap: 30
@@ -63,7 +18,7 @@ $(document).ready(function() {
 
 	var objAxel = {
 		position: 2,
-		badgeName: "assets/images/axel-name.png",
+		badgeName: "assets/images/axel-badge.png",
 		profilePic: "assets/images/axel.jpg",
 		p1Pic: "assets/images/axel-p1.jpg",
 		p2Pic: "assets/images/axel-p2.jpg",
@@ -72,51 +27,6 @@ $(document).ready(function() {
 		beatenAnimation: "assets/images/axel-beaten.gif",
 		walkAnimation: "assets/images/axel-walk.gif",
 		kickAnimation: "assets/images/axel-kick.gif",
-		attack: function () {
-					var self = this;
-					$("#p1Fighter").attr("src", self.walkAnimation);
-					$("#p1Fighter").animate({left: "50vw"},{duration: 800});
-					setTimeout(function () {
-						$("#p1Fighter").attr("src", self.kickAnimation);
-						setTimeout(function () {
-							$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
-						}, 150);
-						setTimeout(function () {
-							$("#p1Fighter").attr("src", self.walkAnimation);
-							$("#p2Fighter").attr("src", objP2Selected.standAnimation);
-						}, 800);
-						setTimeout(function () {
-							$("#p1Fighter").animate({left: "0"},{duration: 800});
-						}, 800);
-						setTimeout(function () {
-							$("#p1Fighter").attr("src", self.standAnimation);
-						}, 1600);
-					}, 800);
-				},
-		counterAttack: function () {
-						var self = this;
-						setTimeout(function () {
-							$("#p2Fighter").attr("src", self.walkAnimation);
-							$("#p2Fighter").animate({right: "60vw"},{duration: 800});
-							setTimeout(function () {
-								$("#p2Fighter").attr("src", self.kickAnimation);
-								setTimeout(function () {
-									$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
-								}, 100);
-								setTimeout(function () {
-									$("#p2Fighter").attr("src", self.walkAnimation);
-									$("#p1Fighter").attr("src", objP1Selected.standAnimation);
-								}, 800);
-								setTimeout(function () {
-									$("#p2Fighter").animate({right: "10vw"},{duration: 800});
-								}, 800);
-								setTimeout(function () {
-									$("#p2Fighter").attr("src", self.standAnimation);
-									bolUnderAttack = false;
-								}, 1600);
-							}, 800);
-						}, 3000);
-					},
 		hp: 150,
 		ap: 10,
 		cap: 35
@@ -124,7 +34,7 @@ $(document).ready(function() {
 
 	var objBlaze = {
 		position: 3,
-		badgeName: "assets/images/blaze-name.png",
+		badgeName: "assets/images/blaze-badge.png",
 		profilePic: "assets/images/blaze.jpg",
 		p1Pic: "assets/images/blaze-p1.jpg",
 		p2Pic: "assets/images/blaze-p2.jpg",
@@ -133,51 +43,6 @@ $(document).ready(function() {
 		beatenAnimation: "assets/images/blaze-beaten.gif",
 		walkAnimation: "assets/images/blaze-walk.gif",
 		kickAnimation: "assets/images/blaze-kick.gif",
-		attack: function () {
-					var self = this;
-					$("#p1Fighter").attr("src", self.walkAnimation);
-					$("#p1Fighter").animate({left: "50vw"},{duration: 800});
-					setTimeout(function () {
-						$("#p1Fighter").attr("src", self.kickAnimation);
-						setTimeout(function () {
-							$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
-						}, 150);
-						setTimeout(function () {
-							$("#p1Fighter").attr("src", self.walkAnimation);
-							$("#p2Fighter").attr("src", objP2Selected.standAnimation);
-						}, 800);
-						setTimeout(function () {
-							$("#p1Fighter").animate({left: "0"},{duration: 800});
-						}, 800);
-						setTimeout(function () {
-							$("#p1Fighter").attr("src", self.standAnimation);
-						}, 1600);
-					}, 800);
-				},
-		counterAttack: function () {
-						var self = this;
-						setTimeout(function () {
-							$("#p2Fighter").attr("src", self.walkAnimation);
-							$("#p2Fighter").animate({right: "60vw"},{duration: 800});
-							setTimeout(function () {
-								$("#p2Fighter").attr("src", self.kickAnimation);
-								setTimeout(function () {
-									$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
-								}, 100);
-								setTimeout(function () {
-									$("#p2Fighter").attr("src", self.walkAnimation);
-									$("#p1Fighter").attr("src", objP1Selected.standAnimation);
-								}, 800);
-								setTimeout(function () {
-									$("#p2Fighter").animate({right: "10vw"},{duration: 800});
-								}, 800);
-								setTimeout(function () {
-									$("#p2Fighter").attr("src", self.standAnimation);
-									bolUnderAttack = false;
-								}, 1600);
-							}, 800);
-						}, 3000);
-					},
 		hp: 140,
 		ap: 8,
 		cap: 40
@@ -185,7 +50,7 @@ $(document).ready(function() {
 
 	var objSkate = {
 		position: 4,
-		badgeName: "assets/images/skate-name.png",
+		badgeName: "assets/images/skate-badge.png",
 		profilePic: "assets/images/skate.jpg",
 		p1Pic: "assets/images/skate-p1.jpg",
 		p2Pic: "assets/images/skate-p2.jpg",
@@ -194,51 +59,6 @@ $(document).ready(function() {
 		beatenAnimation: "assets/images/skate-beaten.gif",
 		walkAnimation: "assets/images/skate-walk.gif",
 		kickAnimation: "assets/images/skate-kick.gif",
-		attack: function () {
-					var self = this;
-					$("#p1Fighter").attr("src", self.walkAnimation);
-					$("#p1Fighter").animate({left: "50vw"},{duration: 800});
-					setTimeout(function () {
-						$("#p1Fighter").attr("src", self.kickAnimation);
-						setTimeout(function () {
-							$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
-						}, 150);
-						setTimeout(function () {
-							$("#p1Fighter").attr("src", self.walkAnimation);
-							$("#p2Fighter").attr("src", objP2Selected.standAnimation);
-						}, 800);
-						setTimeout(function () {
-							$("#p1Fighter").animate({left: "0"},{duration: 800});
-						}, 800);
-						setTimeout(function () {
-							$("#p1Fighter").attr("src", self.standAnimation);
-						}, 1600);
-					}, 800);
-				},
-		counterAttack: function () {
-						var self = this;
-						setTimeout(function () {
-							$("#p2Fighter").attr("src", self.walkAnimation);
-							$("#p2Fighter").animate({right: "60vw"},{duration: 800});
-							setTimeout(function () {
-								$("#p2Fighter").attr("src", self.kickAnimation);
-								setTimeout(function () {
-									$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
-								}, 100);
-								setTimeout(function () {
-									$("#p2Fighter").attr("src", self.walkAnimation);
-									$("#p1Fighter").attr("src", objP1Selected.standAnimation);
-								}, 800);
-								setTimeout(function () {
-									$("#p2Fighter").animate({right: "10vw"},{duration: 800});
-								}, 800);
-								setTimeout(function () {
-									$("#p2Fighter").attr("src", self.standAnimation);
-									bolUnderAttack = false;
-								}, 1600);
-							}, 800);
-						}, 3000);
-					},
 		hp: 120,
 		ap: 7,
 		cap: 45
@@ -252,6 +72,9 @@ $(document).ready(function() {
 	var arrAvailableP2 = [1, 2, 3, 4];
 	var intP2Selector = 0;
 	var intP2Selected = 0;
+	var intCurrentHp1 = 0;
+	var intCurrentHp2 = 0;
+	var intCurrentAp1 = 0;
 	var intTimerCounter = 99;
 	var bolLoaded = false;
 	var bolP1Selection = false;
@@ -386,6 +209,19 @@ function player2Selector (position) {
 		$("window").resize(fgResize()).trigger("resize");
 		$("#p1Fighter").attr("src", objP1Selected.standAnimation);
 		$("#p2Fighter").attr("src", objP2Selected.standAnimation);
+		$("#statName1").attr("src", objP1Selected.badgeName);
+		$("#statName2").attr("src", objP2Selected.badgeName);
+		$("#statImage1").attr("src", objP1Selected.profilePic);
+		$("#statImage2").attr("src", objP2Selected.profilePic);
+		intCurrentHp1 = objP1Selected.hp;
+		intCurrentHp2 = objP2Selected.hp;
+		intCurrentAp1 = objP1Selected.ap;
+		$("#hp1").text(intCurrentHp1);
+		$("#hp2").text(intCurrentHp2);
+		$("#ap1").text(intCurrentAp1);
+		$("#ap2").text(objP2Selected.ap);
+		$("#cap1").text(objP1Selected.cap);
+		$("#cap2").text(objP2Selected.cap);
 		bolStageLoaded = true;
 		var timer = setInterval(function(){
 			intTimerCounter--;
@@ -397,11 +233,57 @@ function player2Selector (position) {
 		}, 1000);
 	}, 2000)};
 
-	function attack () {
-		objP1Selected.attack();
-		objP2Selected.counterAttack();
+	function attack() {
 		bolUnderAttack = true;
-	}
+		$("#p1Fighter").attr("src", objP1Selected.walkAnimation);
+		$("#p1Fighter").animate({left: "50vw"},{duration: 800});
+		setTimeout(function () {
+			$("#p1Fighter").attr("src", objP1Selected.kickAnimation);
+			setTimeout(function () {
+				$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
+				intCurrentHp2 -= intCurrentAp1;
+				$("#hp2").prepend(intCurrentHp2 + " ");
+				$("#ap2").prepend(objP2Selected.ap + " ");
+				$("#cap2").prepend(objP2Selected.cap + " ");
+			}, 150);
+			setTimeout(function () {
+				$("#p1Fighter").attr("src", objP1Selected.walkAnimation);
+				$("#p2Fighter").attr("src", objP2Selected.standAnimation);
+			}, 800);
+			setTimeout(function () {
+				$("#p1Fighter").animate({left: "0"},{duration: 800});
+			}, 800);
+			setTimeout(function () {
+				$("#p1Fighter").attr("src", objP1Selected.standAnimation);
+			}, 1600);
+		}, 800);
+		setTimeout(function () {
+			$("#p2Fighter").attr("src", objP2Selected.walkAnimation);
+			$("#p2Fighter").animate({right: "60vw"},{duration: 800});
+			setTimeout(function () {
+				$("#p2Fighter").attr("src", objP2Selected.kickAnimation);
+				setTimeout(function () {
+					$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
+					intCurrentHp1 -= objP2Selected.cap;
+					intCurrentAp1 += objP1Selected.ap;
+					$("#hp1").append(" " + intCurrentHp1);
+					$("#ap1").append(" " + intCurrentAp1);
+					$("#cap1").append(" " + objP1Selected.cap);
+				}, 100);
+				setTimeout(function () {
+					$("#p2Fighter").attr("src", objP2Selected.walkAnimation);
+					$("#p1Fighter").attr("src", objP1Selected.standAnimation);
+				}, 800);
+				setTimeout(function () {
+					$("#p2Fighter").animate({right: "10vw"},{duration: 800});
+				}, 800);
+				setTimeout(function () {
+					$("#p2Fighter").attr("src", objP2Selected.standAnimation);
+					bolUnderAttack = false;
+				}, 1600);
+			}, 800);
+		}, 3000);
+	};
 
 	document.onkeydown = function keylog(event) {
 		if (bolLoaded === true && bolP1Selection === false && bolP2Selection === false && bolBattleBegan === false && event.keyCode === 13) {
