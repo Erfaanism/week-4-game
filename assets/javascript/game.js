@@ -83,6 +83,15 @@ $(document).ready(function() {
 	var bolUnderAttack = false;
 	var bolStageLoaded = false;
 
+	
+	$.preloadImages = function() {
+		for (var i = 0; i < arguments.length; i++) {
+			$("<img />").attr("src", "assets/images/" + arguments[i]);
+		}
+	}
+
+	$.preloadImages("axel-badge.png", "axel-beaten.gif", "axel-gold.png", "axel-kick.gif", "axel-name.png", "axel-p1.jpg", "axel-p2.jpg", "axel-stand.gif", "axel-walk.gif", "axel.jpg", "background.gif", "blaze-badge.png", "blaze-beaten.gif", "blaze-gold.png", "blaze-kick.gif", "blaze-name.png", "blaze-p1.jpg", "blaze-p2.jpg", "blaze-stand.gif", "blaze-walk.gif", "blaze.jpg", "enter.gif", "erfaanism.png", "explosion.gif", "foreground.png", "jump.png", "max-badge.png", "max-beaten.gif", "max-gold.png", "max-kick.gif", "max-name.png", "max-p1.jpg", "max-p2.jpg", "max-stand.gif", "max-walk.gif", "max.jpg", "power.png", "sega.png", "selectplayer.png", "skate-badge.png", "skate-beaten.gif", "skate-gold.png", "skate-kick.gif", "skate-name.png", "skate-p1.jpg", "skate-p2.jpg", "skate-stand.gif", "skate-walk.gif", "skate.jpg", "speed.png", "stage1.png", "stamina.png", "star1.png", "star2.png", "star3.png", "technique.png");
+
 	setTimeout(function(){
 		$("#loading").css("display", "block");
 		$("#introMusic").get(0).play();
@@ -94,104 +103,104 @@ $(document).ready(function() {
 		bolLoaded = true;
 	}, 3500);
 
-function player1Selector (position) {
-	$("#switchNoise").get(0).play();
-	if (bolP2Selection === false) {
-		$("#max").attr("src", "assets/images/max.jpg")
-		$("#axel").attr("src", "assets/images/axel.jpg")
-		$("#blaze").attr("src", "assets/images/blaze.jpg")
-		$("#skate").attr("src", "assets/images/skate.jpg")
-		$(".playerImages").css("opacity", "0.5")
-		switch (position) {
-			case 1:
-			$("#max").css("opacity", 1);
-			$("#max").attr("src", objMax.p1Pic);
-			$("#onPlayer1Name").attr("src", objMax.goldenName);
-			$("#onPlayer1Image").attr("src", objMax.standAnimation);
-			break;
-			case 2:
-			$("#axel").css("opacity", 1);
-			$("#axel").attr("src", objAxel.p1Pic);
-			$("#onPlayer1Name").attr("src", objAxel.goldenName);
-			$("#onPlayer1Image").attr("src", objAxel.standAnimation);
-			break;
-			case 3:
-			$("#blaze").css("opacity", 1);
-			$("#blaze").attr("src", objBlaze.p1Pic);
-			$("#onPlayer1Name").attr("src", objBlaze.goldenName);
-			$("#onPlayer1Image").attr("src", objBlaze.standAnimation);
-			break;
-			case 4:
-			$("#skate").css("opacity", 1);
-			$("#skate").attr("src", objSkate.p1Pic);
-			$("#onPlayer1Name").attr("src", objSkate.goldenName);
-			$("#onPlayer1Image").attr("src", objSkate.standAnimation);
-			break;												
-		}
-	}
-}
-
-function player2Selector (position) {
-	if (bolP1Selection === false && bolP2Selection === true) {
+	function player1Selector (position) {
 		$("#switchNoise").get(0).play();
-		switch (intP1Selected) {
-			case 1:
-			$("#max").attr("src", "assets/images/max-p1.jpg")
+		if (!bolP2Selection) {
+			$("#max").attr("src", "assets/images/max.jpg")
 			$("#axel").attr("src", "assets/images/axel.jpg")
 			$("#blaze").attr("src", "assets/images/blaze.jpg")
 			$("#skate").attr("src", "assets/images/skate.jpg")
 			$(".playerImages").css("opacity", "0.5")
-			break;
-			case 2:
-			$("#max").attr("src", "assets/images/max.jpg")
-			$("#axel").attr("src", "assets/images/axel-p1.jpg")
-			$("#blaze").attr("src", "assets/images/blaze.jpg")
-			$("#skate").attr("src", "assets/images/skate.jpg")
-			$(".playerImages").css("opacity", "0.5")			
-			break;
-			case 3:
-			$("#max").attr("src", "assets/images/max.jpg")
-			$("#axel").attr("src", "assets/images/axel.jpg")
-			$("#blaze").attr("src", "assets/images/blaze-p1.jpg")
-			$("#skate").attr("src", "assets/images/skate.jpg")
-			$(".playerImages").css("opacity", "0.5")			
-			break;
-			case 4:
-			$("#max").attr("src", "assets/images/max.jpg")
-			$("#axel").attr("src", "assets/images/axel.jpg")
-			$("#blaze").attr("src", "assets/images/blaze.jpg")
-			$("#skate").attr("src", "assets/images/skate-p1.jpg")
-			$(".playerImages").css("opacity", "0.5")			
-			break;
-		}
-		switch (position) {
-			case 1:
-			$("#max").css("opacity", 1);
-			$("#max").attr("src", objMax.p2Pic);
-			$("#onPlayer2Name").attr("src", objMax.goldenName);
-			$("#onPlayer2Image").attr("src", objMax.standAnimation);
-			break;
-			case 2:
-			$("#axel").css("opacity", 1);
-			$("#axel").attr("src", objAxel.p2Pic);
-			$("#onPlayer2Name").attr("src", objAxel.goldenName);
-			$("#onPlayer2Image").attr("src", objAxel.standAnimation);
-			break;
-			case 3:
-			$("#blaze").css("opacity", 1);
-			$("#blaze").attr("src", objBlaze.p2Pic);
-			$("#onPlayer2Name").attr("src", objBlaze.goldenName);
-			$("#onPlayer2Image").attr("src", objBlaze.standAnimation);
-			break;
-			case 4:
-			$("#skate").css("opacity", 1);
-			$("#skate").attr("src", objSkate.p2Pic);
-			$("#onPlayer2Name").attr("src", objSkate.goldenName);
-			$("#onPlayer2Image").attr("src", objSkate.standAnimation);
-			break;												
+			switch (position) {
+				case 1:
+				$("#max").css("opacity", 1);
+				$("#max").attr("src", objMax.p1Pic);
+				$("#onPlayer1Name").attr("src", objMax.goldenName);
+				$("#onPlayer1Image").attr("src", objMax.standAnimation);
+				break;
+				case 2:
+				$("#axel").css("opacity", 1);
+				$("#axel").attr("src", objAxel.p1Pic);
+				$("#onPlayer1Name").attr("src", objAxel.goldenName);
+				$("#onPlayer1Image").attr("src", objAxel.standAnimation);
+				break;
+				case 3:
+				$("#blaze").css("opacity", 1);
+				$("#blaze").attr("src", objBlaze.p1Pic);
+				$("#onPlayer1Name").attr("src", objBlaze.goldenName);
+				$("#onPlayer1Image").attr("src", objBlaze.standAnimation);
+				break;
+				case 4:
+				$("#skate").css("opacity", 1);
+				$("#skate").attr("src", objSkate.p1Pic);
+				$("#onPlayer1Name").attr("src", objSkate.goldenName);
+				$("#onPlayer1Image").attr("src", objSkate.standAnimation);
+				break;												
+			}
 		}
 	}
-}
+
+	function player2Selector (position) {
+		if (!bolP1Selection && bolP2Selection) {
+			$("#switchNoise").get(0).play();
+			switch (intP1Selected) {
+				case 1:
+				$("#max").attr("src", "assets/images/max-p1.jpg")
+				$("#axel").attr("src", "assets/images/axel.jpg")
+				$("#blaze").attr("src", "assets/images/blaze.jpg")
+				$("#skate").attr("src", "assets/images/skate.jpg")
+				$(".playerImages").css("opacity", "0.5")
+				break;
+				case 2:
+				$("#max").attr("src", "assets/images/max.jpg")
+				$("#axel").attr("src", "assets/images/axel-p1.jpg")
+				$("#blaze").attr("src", "assets/images/blaze.jpg")
+				$("#skate").attr("src", "assets/images/skate.jpg")
+				$(".playerImages").css("opacity", "0.5")			
+				break;
+				case 3:
+				$("#max").attr("src", "assets/images/max.jpg")
+				$("#axel").attr("src", "assets/images/axel.jpg")
+				$("#blaze").attr("src", "assets/images/blaze-p1.jpg")
+				$("#skate").attr("src", "assets/images/skate.jpg")
+				$(".playerImages").css("opacity", "0.5")			
+				break;
+				case 4:
+				$("#max").attr("src", "assets/images/max.jpg")
+				$("#axel").attr("src", "assets/images/axel.jpg")
+				$("#blaze").attr("src", "assets/images/blaze.jpg")
+				$("#skate").attr("src", "assets/images/skate-p1.jpg")
+				$(".playerImages").css("opacity", "0.5")			
+				break;
+			}
+			switch (position) {
+				case 1:
+				$("#max").css("opacity", 1);
+				$("#max").attr("src", objMax.p2Pic);
+				$("#onPlayer2Name").attr("src", objMax.goldenName);
+				$("#onPlayer2Image").attr("src", objMax.standAnimation);
+				break;
+				case 2:
+				$("#axel").css("opacity", 1);
+				$("#axel").attr("src", objAxel.p2Pic);
+				$("#onPlayer2Name").attr("src", objAxel.goldenName);
+				$("#onPlayer2Image").attr("src", objAxel.standAnimation);
+				break;
+				case 3:
+				$("#blaze").css("opacity", 1);
+				$("#blaze").attr("src", objBlaze.p2Pic);
+				$("#onPlayer2Name").attr("src", objBlaze.goldenName);
+				$("#onPlayer2Image").attr("src", objBlaze.standAnimation);
+				break;
+				case 4:
+				$("#skate").css("opacity", 1);
+				$("#skate").attr("src", objSkate.p2Pic);
+				$("#onPlayer2Name").attr("src", objSkate.goldenName);
+				$("#onPlayer2Image").attr("src", objSkate.standAnimation);
+				break;												
+			}
+		}
+	}
 
 	function beginFight() {
 		setTimeout(function fight() {
@@ -239,6 +248,7 @@ function player2Selector (position) {
 		$("#p1Fighter").animate({left: "50vw"},{duration: 800});
 		setTimeout(function () {
 			$("#p1Fighter").attr("src", objP1Selected.kickAnimation);
+			$("#kickNoise").get(0).play();
 			setTimeout(function () {
 				$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
 				intCurrentHp2 -= intCurrentAp1;
@@ -262,6 +272,7 @@ function player2Selector (position) {
 			$("#p2Fighter").animate({right: "60vw"},{duration: 800});
 			setTimeout(function () {
 				$("#p2Fighter").attr("src", objP2Selected.kickAnimation);
+				$("#kickNoise").get(0).play();
 				setTimeout(function () {
 					$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
 					intCurrentHp1 -= objP2Selected.cap;
@@ -286,7 +297,7 @@ function player2Selector (position) {
 	};
 
 	document.onkeydown = function keylog(event) {
-		if (bolLoaded === true && bolP1Selection === false && bolP2Selection === false && bolBattleBegan === false && event.keyCode === 13) {
+		if (bolLoaded && !bolP1Selection && !bolP2Selection && !bolBattleBegan && event.keyCode === 13) {
 			$("#enter").css("display", "none");
 			$("#playerSelection").css("display", "block");
 			$("#max").css("opacity", 1);
@@ -295,15 +306,15 @@ function player2Selector (position) {
 			$("#pSelectMusic").get(0).play();
 			bolP1Selection = true;
 		}
-		else if (bolP1Selection === true && bolP2Selection === false && bolBattleBegan === false && event.keyCode === 39 && intP1Selector <= 3) {
+		else if (bolP1Selection && !bolP2Selection && !bolBattleBegan && event.keyCode === 39 && intP1Selector <= 3) {
 			intP1Selector++;
 			player1Selector(intP1Selector);
 		}
-		else if (bolP1Selection === true && bolP2Selection === false && bolBattleBegan === false && event.keyCode === 37 && intP1Selector >= 2) {
+		else if (bolP1Selection && !bolP2Selection && !bolBattleBegan && event.keyCode === 37 && intP1Selector >= 2) {
 			intP1Selector--;
 			player1Selector(intP1Selector);
 		}
-		else if (bolP1Selection === true && event.keyCode === 13) {
+		else if (bolP1Selection && event.keyCode === 13) {
 			$("#selectPlayer").get(0).play();
 			intP1Selected = intP1Selector;
 			objP1Selected = arrObjList[intP1Selected - 1];
@@ -312,15 +323,15 @@ function player2Selector (position) {
 			bolP2Selection = true;
 			player2Selector(arrAvailableP2[intP2Selector]);
 		}
-		else if (bolP2Selection === true && bolP1Selection === false && bolBattleBegan === false && event.keyCode === 39 && intP2Selector <= 1) {
+		else if (bolP2Selection && !bolP1Selection && !bolBattleBegan && event.keyCode === 39 && intP2Selector <= 1) {
 			intP2Selector++;
 			player2Selector(arrAvailableP2[intP2Selector]);
 		}
-		else if (bolP2Selection === true && bolP1Selection === false && bolBattleBegan === false && event.keyCode === 37 && intP2Selector >= 1) {
+		else if (bolP2Selection && !bolP1Selection && !bolBattleBegan && event.keyCode === 37 && intP2Selector >= 1) {
 			intP2Selector--;
 			player2Selector(arrAvailableP2[intP2Selector]);
 		}
-		else if (bolP1Selection === false && bolP2Selection === true && bolBattleBegan === false && event.keyCode === 13) {
+		else if (!bolP1Selection && bolP2Selection && !bolBattleBegan && event.keyCode === 13) {
 			intP2Selected = arrAvailableP2[intP2Selector];
 			objP2Selected = arrObjList[intP2Selected - 1];
 			bolP2Selection = false;
@@ -332,7 +343,7 @@ function player2Selector (position) {
 			beginFight();
 			bolBattleBegan = true;
 		}
-		else if (bolUnderAttack === false && bolStageLoaded === true && bolP1Selection === false && bolP2Selection === false && bolBattleBegan === true && event.keyCode === 13) {
+		else if (!bolUnderAttack && bolStageLoaded && !bolP1Selection && !bolP2Selection && bolBattleBegan && event.keyCode === 13) {
 			attack();
 		}
 	}
