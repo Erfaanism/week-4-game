@@ -94,7 +94,7 @@ body {
 	-ms-filter: "FlipH";
 }
 
-#stage1 {
+#stage1, #stage2, #stage3 {
 	display: none;
 	position: absolute;
 	width: 70vw;
@@ -165,18 +165,24 @@ body {
 	left: 2.5vw;
 }
 
-#hpBar1 {
+#hpBar1Container {
 	position: absolute;
 	box-sizing: border-box;
-	background: -webkit-linear-gradient(90deg, #ffff00 50%, #ff2400 50%);
-	background: -o-linear-gradient(90deg, #ffff00 50%, #ff2400 50%);
-	background: -moz-linear-gradient(90deg, #ffff00 50%, #ff2400 50%);
-	background: linear-gradient(90deg, #ffff00 50%, #ff2400 50%);
+	background: #ff2400;
 	border: solid 2px #fff;
 	width: 33vw;
 	height: 2.5vw;
 	top: 7.5vw;
 	left: 7.5vw;
+}
+
+#hpBar1 {
+	position: absolute;
+	background: #ffff00;
+	width: calc(33vw - 4px);
+	height: calc(2.5vw - 4px);
+	top: calc(7.5vw + 2px);
+	left: calc(7.5vw + 2px);
 }
 
 #timer {
@@ -217,18 +223,24 @@ body {
 	right: 2.5vw;
 }
 
-#hpBar2 {
+#hpBar2Container {
 	position: absolute;
 	box-sizing: border-box;
-	background: -webkit-linear-gradient(90deg, #ff2400 50%, #ffff00 50%);
-	background: -o-linear-gradient(90deg, #ff2400 50%, #ffff00 50%);
-	background: -moz-linear-gradient(90deg, #ff2400 50%, #ffff00 50%);
-	background: linear-gradient(90deg, #ff2400 50%, #ffff00 50%);
+	background: #ff2400;
 	border: solid 2px #fff;
 	width: 33vw;
 	height: 2.5vw;
 	top: 7.5vw;
 	right: 7.5vw;
+}
+
+#hpBar2 {
+	position: absolute;
+	background: #ffff00;
+	width: calc(33vw - 4px);
+	height: calc(2.5vw - 4px);
+	top: calc(7.5vw + 2px);
+	right: calc(7.5vw + 2px);
 }
 
 #stats1, #stats2 {
@@ -237,6 +249,10 @@ body {
 	font-size: 2vw;
 	color: #000;
 	-webkit-text-stroke: 0.1vw white;
+}
+
+#stats2 {
+	margin-top: 18vw;
 }
 
 span.stats {
@@ -253,6 +269,15 @@ span.stats {
 
 #stats2 {
 	right: 2.5vw;
+}
+
+#p1Wins, #p2Wins {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50vw;
+	height: auto;
 }
 
 #fgImage {
