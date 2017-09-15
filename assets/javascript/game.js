@@ -14,7 +14,9 @@ $(document).ready(function() {
 		walkAnimation: "assets/images/max-walk.gif",
 		kickAnimation: "assets/images/max-kick.gif",
 		hp: 400,
+		currentHp: 400,
 		ap: 12,
+		currentap: 12,
 		cap: 55
 	}
 
@@ -32,7 +34,9 @@ $(document).ready(function() {
 		walkAnimation: "assets/images/axel-walk.gif",
 		kickAnimation: "assets/images/axel-kick.gif",
 		hp: 380,
+		currentHp: 380,
 		ap: 12.5,
+		currentap: 12.5,
 		cap: 57
 	}
 
@@ -50,7 +54,9 @@ $(document).ready(function() {
 		walkAnimation: "assets/images/blaze-walk.gif",
 		kickAnimation: "assets/images/blaze-kick.gif",
 		hp: 360,
+		currentHp: 360,
 		ap: 14,
+		currentap: 14, 
 		cap: 58
 	}
 
@@ -68,7 +74,9 @@ $(document).ready(function() {
 		walkAnimation: "assets/images/skate-walk.gif",
 		kickAnimation: "assets/images/skate-kick.gif",
 		hp: 340,
+		currentHp: 400,
 		ap: 16,
+		currentap: 16, 
 		cap: 60
 	}
 
@@ -82,10 +90,7 @@ $(document).ready(function() {
 	var intP2Selector = 0;
 	var intP2Selected = 0;
 	var intP3Selector = 0;
-	var intP3Selected = 0;	
-	var intCurrentHp1 = 0;
-	var intCurrentHp2 = 0;
-	var intCurrentAp1 = 0;
+	var intP3Selected = 0;
 	var hpBar1 = 33;
 	var damageP1 = 0;
 	var damagedHp1 = "";
@@ -98,6 +103,7 @@ $(document).ready(function() {
 	var bolP1Selection = false;
 	var bolP2Selection = false;
 	var bolP3Selection = false;
+	var bolLastRound = false;
 	var bolBattleBegan = false;
 	var bolUnderAttack = false;
 	var bolStageLoaded = false;
@@ -357,8 +363,9 @@ $(document).ready(function() {
 	}
 
 	function beginFight() {
+		intTimerCounter = 99;
 		setTimeout(function fight() {
-		$("#stage1").css("display", "none");
+		$("#stage").css("display", "none");
 		$("#battleScene").css("display", "block");
 		var aspectRatio = $("#fgImage").width() / $("#fgImage").height();
 		function fgResize() {
@@ -376,12 +383,9 @@ $(document).ready(function() {
 		$("#statName2").attr("src", objP2Selected.badgeName);
 		$("#statImage1").attr("src", objP1Selected.profilePic);
 		$("#statImage2").attr("src", objP2Selected.profilePic);
-		intCurrentHp1 = objP1Selected.hp;
-		intCurrentHp2 = objP2Selected.hp;
-		intCurrentAp1 = objP1Selected.ap;
-		$("#hp1").text(intCurrentHp1);
-		$("#hp2").text(intCurrentHp2);
-		$("#ap1").text(intCurrentAp1);
+		$("#hp1").text(objP1Selected.currentHp);
+		$("#hp2").text(objP2Selected.currentHp);
+		$("#ap1").text(objP1Selected.currentap);
 		$("#ap2").text(objP2Selected.ap);
 		$("#cap1").text(objP1Selected.cap);
 		$("#cap2").text(objP2Selected.cap);
@@ -396,14 +400,25 @@ $(document).ready(function() {
 		}, 1000);
 	}, 2000)};
 
+	function gameOver() {
+		$("#stage").css("visibility", "hidden");
+		$("#stage").css("display", "block");
+		$("#stageImage").attr("src", "assets/images/gameover.png");
+		$("#battleScene").css("display", "none");
+		$("#stage").css("visibility", "visible");
+		setTimeout(function() {
+			location.reload(true);
+		}, 6000);
+	}
 	function p1Wins () {
+		intStage++;
 		$("#p1Wins").css("display", "block");
 		$("#p1Wins").animate({"left": "50vw", "top": "50vw", "margin-left": "-25vw", "margin-top": "-25vw"}, {duration: 1000});
+		bolRoundOver = true;
 		setTimeout(function() {
 			$("#p1Wins").css({"left": "0", "top": "0", "display": "none"});
 			nextRound();
-			bolRoundOver = true;
-		}, 5000);
+		}, 4000);
 	}
 
 	function p2Wins () {
@@ -411,8 +426,7 @@ $(document).ready(function() {
 		$("#p2Wins").animate({"left": "50vw", "top": "50vw", "margin-left": "-25vw", "margin-top": "-25vw"}, {duration: 1000});
 		setTimeout(function() {
 			$("#p2Wins").css({"left": "0", "top": "0", "display": "none"});
-			nextRound();
-			bolRoundOver = true;
+			gameOver();
 		}, 5000);
 	}
 
@@ -425,9 +439,9 @@ $(document).ready(function() {
 			$("#kickNoise1").get(0).play();
 			setTimeout(function () {
 				$("#p2Fighter").attr("src", objP2Selected.beatenAnimation);
-				intCurrentHp2 -= intCurrentAp1;
-				if (intCurrentHp2 > 0) {
-					damageP2 = ((intCurrentAp1 * 33)/objP2Selected.hp).toFixed(2);
+				objP2Selected.currentHp -= objP1Selected.currentap;
+				if (objP2Selected.currentHp > 0) {
+					damageP2 = ((objP1Selected.currentap * 33)/objP2Selected.hp).toFixed(2);
 					console.log(damageP2);
 					hpBar2 -= damageP2;
 					console.log(hpBar2.toFixed(2));
@@ -436,9 +450,8 @@ $(document).ready(function() {
 				else {
 					$("#hpBar2").css("width", 0);
 					p1Wins();
-					intStage++;
 				}
-				$("#hp2").prepend(intCurrentHp2 + " ");
+				$("#hp2").prepend(objP2Selected.currentHp + " ");
 				$("#ap2").prepend(objP2Selected.ap + " ");
 				$("#cap2").prepend(objP2Selected.cap + " ");
 			}, 150);
@@ -454,7 +467,7 @@ $(document).ready(function() {
 				console.log(bolRoundOver);
 			}, 1600);
 		}, 800);
-	
+
 		setTimeout(function () {
 			if (!bolRoundOver) {
 				$("#p2Fighter").attr("src", objP2Selected.walkAnimation);
@@ -464,9 +477,9 @@ $(document).ready(function() {
 					$("#kickNoise2").get(0).play();
 					setTimeout(function () {
 						$("#p1Fighter").attr("src", objP1Selected.beatenAnimation);
-						intCurrentHp1 -= objP2Selected.cap;
-						intCurrentAp1 += objP1Selected.ap;
-					if (intCurrentHp1 > 0) {
+						objP1Selected.currentHp -= objP2Selected.cap;
+						objP1Selected.currentap += objP1Selected.ap;
+					if (objP1Selected.currentHp > 0) {
 						damageP1 = ((objP2Selected.cap * 33)/objP1Selected.hp).toFixed(2);
 						console.log(damageP1);
 						hpBar1 -= damageP1;
@@ -476,10 +489,9 @@ $(document).ready(function() {
 					else {
 						$("#hpBar1").css("width", 0);
 						p2Wins();
-						intStage++;
 					}
-						$("#hp1").append(" " + intCurrentHp1);
-						$("#ap1").append(" " + intCurrentAp1);
+						$("#hp1").append(" " + objP1Selected.currentHp);
+						$("#ap1").append(" " + objP1Selected.currentap);
 						$("#cap1").append(" " + objP1Selected.cap);
 					}, 100);
 					setTimeout(function () {
@@ -546,7 +558,7 @@ $(document).ready(function() {
 			objP2Selected = arrObjList[intP2Selected - 1];
 			bolP2Selection = false;
 			$("#playerSelection").css("display", "none");
-			$("#stage1").css("display", "block");
+			$("#stage").css("display", "block");
 			$("#selectPlayer").get(0).play();
 			$("#pSelectMusic").get(0).pause();
 			$("#bgMusic").get(0).play();
@@ -558,21 +570,21 @@ $(document).ready(function() {
 			console.log("intP3Selector " + intP3Selector);
 			console.log("arrAvailableP2[1]) " + arrAvailableP2[1]);
 			console.log("arrAvailableP2[0] " + arrAvailableP2[0]);
-			player3Selector(arrAvailableP2[intP3Selector]);
+			player3Selector(arrAvailableP2[intP3Selector - 1]);
 		}
 
 		else if (!bolUnderAttack && !bolRoundOver && bolStageLoaded && !bolP1Selection && !bolP2Selection && bolBattleBegan && event.keyCode === 13) {
 			attack();
 		}
 
-		else if (!bolP2Selection && !bolP1Selection && bolRoundOver && bolP3Selection && event.keyCode === 39 && intP3Selector === arrAvailableP2[0]) {
+		else if (!bolP2Selection && !bolP1Selection && bolRoundOver && bolP3Selection && event.keyCode === 39 && intP3Selector <= arrAvailableP2[0]) {
 			intP3Selector = arrAvailableP2[1];
 			console.log("intP3Selector " + intP3Selector);
 			console.log("arrAvailableP2[1]) " + arrAvailableP2[1]);
 			console.log("arrAvailableP2[0] " + arrAvailableP2[0]);			
 			player3Selector(intP3Selector);
 		}
-		else if (!bolP2Selection && !bolP1Selection && bolRoundOver && bolP3Selection && event.keyCode === 37 && intP3Selector === arrAvailableP2[1]) {
+		else if (!bolP2Selection && !bolP1Selection && bolRoundOver && bolP3Selection && event.keyCode === 37 && intP3Selector >= arrAvailableP2[1]) {
 			intP3Selector = arrAvailableP2[0];
 			console.log("intP3Selector " + intP3Selector);
 			console.log("arrAvailableP2[1]) " + arrAvailableP2[1]);
@@ -581,11 +593,14 @@ $(document).ready(function() {
 		}
 		else if (!bolP1Selection && !bolP2Selection && bolP3Selection && bolRoundOver && event.keyCode === 13) {
 			intP3Selected = arrAvailableP2[intP3Selector];
-			objP3Selected = arrObjList[intP3Selected - 1];
+			objP2Selected = arrObjList[intP3Selected - 1];
 			bolP3Selection = false;
+			$("#playerSelection").css("display", "none");
+			$("#stage").css("display", "block");
 			$("#selectPlayer").get(0).play();
 			$("#pSelectMusic").get(0).pause();
 			$("#bgMusic").get(0).play();
+			arrAvailableP2.splice(intP3Selected - 1, 1);
 			beginFight();
 			bolBattleBegan = true;
 		}		

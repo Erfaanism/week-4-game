@@ -94,7 +94,7 @@ body {
 	-ms-filter: "FlipH";
 }
 
-#stage1, #stage2, #stage3 {
+#stage {
 	display: none;
 	position: absolute;
 	width: 70vw;
